@@ -31,6 +31,9 @@ public class ScientificCalculator {
                     case 5:
                         performSquareRoot(inputReader);
                         break;
+                    case 6:
+                        performPower(inputReader);
+                        break;
                     case 17:
                         System.out.println("Exiting calculator. Goodbye!");
                         running = false;
@@ -87,6 +90,9 @@ public class ScientificCalculator {
     public static double calculateSquareRoot(double num) {
         return (num < 0) ? Double.NaN : Math.sqrt(num);
     }
+    public static double calculatePower(double base, double exponent) {
+        return Math.pow(base, exponent);
+    }
 
 
     // --- Helper Methods for User Interaction ---
@@ -135,6 +141,15 @@ public class ScientificCalculator {
         double num = inputReader.nextDouble();
 
         System.out.println("Result: " + calculateSquareRoot(num));
+    }
+    private static void performPower(Scanner inputReader) {
+        System.out.print("Enter base: ");
+        double base = inputReader.nextDouble();
+
+        System.out.print("Enter exponent: ");
+        double exponent = inputReader.nextDouble();
+
+        System.out.println("Result: " + calculatePower(base, exponent));
     }
 }
 
