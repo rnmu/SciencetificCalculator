@@ -9,7 +9,7 @@ public class ScientificCalculator {
         while (running) {
             displayMenu(); // Display menu
 
-            try {
+
                 // User options
                 System.out.print("Choose an option (1–17): ");
                 int option = inputReader.nextInt();
@@ -22,6 +22,9 @@ public class ScientificCalculator {
                     case 2:
                         performSubtraction(inputReader);
                         break;
+                    case 3:
+                        performMultiplication(inputReader);
+                        break;
                     case 17:
                         System.out.println("Exiting calculator. Goodbye!");
                         running = false;
@@ -30,10 +33,9 @@ public class ScientificCalculator {
                         System.out.println("Invalid option. Try again.");
                 }
 
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Please enter numbers only.");
+
                 inputReader.nextLine();
-            }
+
         }
 
         // Close scanner
@@ -69,6 +71,9 @@ public class ScientificCalculator {
     public static double subtract(double a, double b) {
         return a - b;
     }
+    public static double multiply(double a, double b) {
+        return a * b;
+    }
 
     // --- Helper Methods for User Interaction ---
     private static void performAddition(Scanner inputReader) {
@@ -88,6 +93,15 @@ public class ScientificCalculator {
         double b = inputReader.nextDouble();
 
         System.out.println("Result: " + subtract(a, b));
+    }
+    private static void performMultiplication(Scanner inputReader) {
+        System.out.print("Enter first number: ");
+        double a = inputReader.nextDouble();
+
+        System.out.print("Enter second number: ");
+        double b = inputReader.nextDouble();
+
+        System.out.println("Result: " + multiply(a, b));
     }
 
 }
