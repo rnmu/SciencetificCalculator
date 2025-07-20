@@ -6,15 +6,16 @@ public class ScientificCalculator {
         Scanner inputReader = new Scanner(System.in);
         boolean running = true;
 
+        // Main loop to keep the calculator running until user exits
         while (running) {
-            displayMenu(); // Display menu
+            displayMenu(); // Show all available operations
 
-
+            try {
                 // User options
-                System.out.print("Choose an option (1–17): ");
+                System.out.print("Choose an option (1–18): ");
                 int option = inputReader.nextInt();
 
-
+                // switch statement
                 switch (option) {
                     case 1:
                         performAddition(inputReader);
@@ -74,9 +75,11 @@ public class ScientificCalculator {
                     default:
                         System.out.println("Invalid option. Try again.");
                 }
-
+            } catch (InputMismatchException e) {
+                // Handle input errors
+                System.out.println("Invalid input. Please enter numbers only.");
                 inputReader.nextLine();
-
+            }
         }
 
         // Close scanner
