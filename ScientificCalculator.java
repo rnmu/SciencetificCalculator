@@ -46,14 +46,19 @@ public class ScientificCalculator {
                     case 10:
                         performNaturalLog(inputReader);
                         break;
-                    case 17:
+                    case 11:
+                        performLogBase10(inputReader);
+                        break;
+                    case 12:
+                        performAbsoluteValue(inputReader);
+                        break;
+                    case 18:
                         System.out.println("Exiting calculator. Goodbye!");
                         running = false;
                         break;
                     default:
                         System.out.println("Invalid option. Try again.");
                 }
-
 
                 inputReader.nextLine();
 
@@ -77,12 +82,13 @@ public class ScientificCalculator {
         System.out.println("9.  Tangent");
         System.out.println("10. Natural Logarithm (ln)");
         System.out.println("11. Log Base 10");
-        System.out.println("12. Round");
-        System.out.println("13. Ceiling");
-        System.out.println("14. Floor");
-        System.out.println("15. Minimum");
-        System.out.println("16. Maximum");
-        System.out.println("17. Exit");
+        System.out.println("12. Absolute value");
+        System.out.println("13. Round");
+        System.out.println("14. Ceiling");
+        System.out.println("15. Floor");
+        System.out.println("16. Minimum");
+        System.out.println("17. Maximum");
+        System.out.println("18. Exit");
     }
 
     // --- Basic Arithmetic Methods ---
@@ -98,6 +104,7 @@ public class ScientificCalculator {
     public static double divide(double a, double b) {
         return a / b;
     }
+
     // --- Scientific Math Methods ---
     public static double calculateSquareRoot(double num) {
         return (num < 0) ? Double.NaN : Math.sqrt(num);
@@ -118,6 +125,13 @@ public class ScientificCalculator {
     }
     public static double calculateNaturalLog(double num) {
         return (num <= 0) ? Double.NaN : Math.log(num);
+    }
+    public static double calculateLogBase10(double num) {
+        return (num <= 0) ? Double.NaN : Math.log10(num);
+    }
+
+    private static double calculateAbsoluteValue(double num) {
+        return Math.abs(num);
     }
 
 
@@ -196,6 +210,17 @@ public class ScientificCalculator {
         System.out.print("Enter number: ");
         double num = inputReader.nextDouble();
         System.out.println("Result: " + calculateNaturalLog(num));
+    }
+    private static void performLogBase10(Scanner inputReader) {
+        System.out.print("Enter number: ");
+        double num = inputReader.nextDouble();
+        System.out.println("Result: " + calculateLogBase10(num));
+    }
+    private static void performAbsoluteValue(Scanner inputReader) {
+        System.out.print("Enter a number to get its absolute value: ");
+        double num = inputReader.nextDouble();
+        double result = calculateAbsoluteValue(num);
+        System.out.println("Result: " + result);
     }
 }
 
