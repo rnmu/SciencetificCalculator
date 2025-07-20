@@ -52,6 +52,15 @@ public class ScientificCalculator {
                     case 12:
                         performAbsoluteValue(inputReader);
                         break;
+                    case 13:
+                        performRounding(inputReader);
+                        break;
+                    case 14:
+                        performCeiling(inputReader);
+                        break;
+                    case 15:
+                        performFloor(inputReader);
+                        break;
                     case 18:
                         System.out.println("Exiting calculator. Goodbye!");
                         running = false;
@@ -133,7 +142,17 @@ public class ScientificCalculator {
     private static double calculateAbsoluteValue(double num) {
         return Math.abs(num);
     }
+    public static long roundNumber(double num) {
+        return Math.round(num);
+    }
 
+    public static double ceilingNumber(double num) {
+        return Math.ceil(num);
+    }
+
+    public static double floorNumber(double num) {
+        return Math.floor(num);
+    }
 
     // --- Helper Methods for User Interaction ---
     private static void performAddition(Scanner inputReader) {
@@ -221,6 +240,24 @@ public class ScientificCalculator {
         double num = inputReader.nextDouble();
         double result = calculateAbsoluteValue(num);
         System.out.println("Result: " + result);
+    }
+
+    private static void performRounding(Scanner inputReader) {
+        System.out.print("Enter number: ");
+        double num = inputReader.nextDouble();
+        System.out.println("Result: " + roundNumber(num));
+    }
+
+    private static void performCeiling(Scanner inputReader) {
+        System.out.print("Enter number: ");
+        double num = inputReader.nextDouble();
+        System.out.println("Result: " + ceilingNumber(num));
+    }
+
+    private static void performFloor(Scanner inputReader) {
+        System.out.print("Enter number: ");
+        double num = inputReader.nextDouble();
+        System.out.println("Result: " + floorNumber(num));
     }
 }
 
