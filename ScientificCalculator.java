@@ -28,6 +28,9 @@ public class ScientificCalculator {
                     case 4:
                         performDivision(inputReader);
                         break;
+                    case 5:
+                        performSquareRoot(inputReader);
+                        break;
                     case 17:
                         System.out.println("Exiting calculator. Goodbye!");
                         running = false;
@@ -80,6 +83,11 @@ public class ScientificCalculator {
     public static double divide(double a, double b) {
         return a / b;
     }
+    // --- Scientific Math Methods ---
+    public static double calculateSquareRoot(double num) {
+        return (num < 0) ? Double.NaN : Math.sqrt(num);
+    }
+
 
     // --- Helper Methods for User Interaction ---
     private static void performAddition(Scanner inputReader) {
@@ -122,7 +130,12 @@ public class ScientificCalculator {
             System.out.println("Result: " + divide(a, b));
         }
     }
+    private static void performSquareRoot(Scanner inputReader) {
+        System.out.print("Enter number: ");
+        double num = inputReader.nextDouble();
 
+        System.out.println("Result: " + calculateSquareRoot(num));
+    }
 }
 
 
