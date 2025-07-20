@@ -34,6 +34,9 @@ public class ScientificCalculator {
                     case 6:
                         performPower(inputReader);
                         break;
+                    case 7:
+                        performSine(inputReader);
+                        break;
                     case 17:
                         System.out.println("Exiting calculator. Goodbye!");
                         running = false;
@@ -93,7 +96,9 @@ public class ScientificCalculator {
     public static double calculatePower(double base, double exponent) {
         return Math.pow(base, exponent);
     }
-
+    public static double calculateSine(double degrees) {
+        return Math.sin(Math.toRadians(degrees));
+    }
 
     // --- Helper Methods for User Interaction ---
     private static void performAddition(Scanner inputReader) {
@@ -151,6 +156,12 @@ public class ScientificCalculator {
 
         System.out.println("Result: " + calculatePower(base, exponent));
     }
+    private static void performSine(Scanner inputReader) {
+        System.out.print("Enter angle in degrees: ");
+        double angle = inputReader.nextDouble();
+        System.out.println("Result: " + calculateSine(angle));
+    }
+
 }
 
 
