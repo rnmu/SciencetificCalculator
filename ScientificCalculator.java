@@ -25,6 +25,9 @@ public class ScientificCalculator {
                     case 3:
                         performMultiplication(inputReader);
                         break;
+                    case 4:
+                        performDivision(inputReader);
+                        break;
                     case 17:
                         System.out.println("Exiting calculator. Goodbye!");
                         running = false;
@@ -74,6 +77,9 @@ public class ScientificCalculator {
     public static double multiply(double a, double b) {
         return a * b;
     }
+    public static double divide(double a, double b) {
+        return a / b;
+    }
 
     // --- Helper Methods for User Interaction ---
     private static void performAddition(Scanner inputReader) {
@@ -102,6 +108,19 @@ public class ScientificCalculator {
         double b = inputReader.nextDouble();
 
         System.out.println("Result: " + multiply(a, b));
+    }
+    private static void performDivision(Scanner inputReader) {
+        System.out.print("Enter first number: ");
+        double a = inputReader.nextDouble();
+
+        System.out.print("Enter second number: ");
+        double b = inputReader.nextDouble();
+
+        if (b == 0) {
+            System.out.println("Error: Cannot divide by zero.");
+        } else {
+            System.out.println("Result: " + divide(a, b));
+        }
     }
 
 }
