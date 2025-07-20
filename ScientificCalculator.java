@@ -40,6 +40,9 @@ public class ScientificCalculator {
                     case 8:
                         performCosine(inputReader);
                         break;
+                    case 9:
+                        performTangent(inputReader);
+                        break;
                     case 17:
                         System.out.println("Exiting calculator. Goodbye!");
                         running = false;
@@ -103,7 +106,12 @@ public class ScientificCalculator {
         return Math.sin(Math.toRadians(degrees));
     }
     public static double calculateCosine(double degrees) {
+
         return Math.cos(Math.toRadians(degrees));
+    }
+    public static double calculateTangent(double degrees) {
+        double radians = Math.toRadians(degrees);
+        return Math.abs(Math.cos(radians)) < 1e-10 ? Double.NaN : Math.tan(radians);
     }
 
 
@@ -172,6 +180,11 @@ public class ScientificCalculator {
         System.out.print("Enter angle in degrees: ");
         double angle = inputReader.nextDouble();
         System.out.println("Result: " + calculateCosine(angle));
+    }
+    private static void performTangent(Scanner inputReader) {
+        System.out.print("Enter angle in degrees: ");
+        double angle = inputReader.nextDouble();
+        System.out.println("Result: " + calculateTangent(angle));
     }
 
 }
