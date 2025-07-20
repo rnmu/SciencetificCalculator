@@ -37,6 +37,9 @@ public class ScientificCalculator {
                     case 7:
                         performSine(inputReader);
                         break;
+                    case 8:
+                        performCosine(inputReader);
+                        break;
                     case 17:
                         System.out.println("Exiting calculator. Goodbye!");
                         running = false;
@@ -99,6 +102,10 @@ public class ScientificCalculator {
     public static double calculateSine(double degrees) {
         return Math.sin(Math.toRadians(degrees));
     }
+    public static double calculateCosine(double degrees) {
+        return Math.cos(Math.toRadians(degrees));
+    }
+
 
     // --- Helper Methods for User Interaction ---
     private static void performAddition(Scanner inputReader) {
@@ -160,6 +167,11 @@ public class ScientificCalculator {
         System.out.print("Enter angle in degrees: ");
         double angle = inputReader.nextDouble();
         System.out.println("Result: " + calculateSine(angle));
+    }
+    private static void performCosine(Scanner inputReader) {
+        System.out.print("Enter angle in degrees: ");
+        double angle = inputReader.nextDouble();
+        System.out.println("Result: " + calculateCosine(angle));
     }
 
 }
