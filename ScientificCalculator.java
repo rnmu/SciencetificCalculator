@@ -61,6 +61,12 @@ public class ScientificCalculator {
                     case 15:
                         performFloor(inputReader);
                         break;
+                    case 16:
+                        performMinimum(inputReader);
+                        break;
+                    case 17:
+                        performMaximum(inputReader);
+                        break;
                     case 18:
                         System.out.println("Exiting calculator. Goodbye!");
                         running = false;
@@ -153,6 +159,14 @@ public class ScientificCalculator {
     public static double floorNumber(double num) {
         return Math.floor(num);
     }
+    public static double findMin(double a, double b) {
+        return Math.min(a, b);
+    }
+
+    public static double findMax(double a, double b) {
+        return Math.max(a, b);
+    }
+
 
     // --- Helper Methods for User Interaction ---
     private static void performAddition(Scanner inputReader) {
@@ -258,6 +272,23 @@ public class ScientificCalculator {
         System.out.print("Enter number: ");
         double num = inputReader.nextDouble();
         System.out.println("Result: " + floorNumber(num));
+    }
+    private static void performMinimum(Scanner inputReader) {
+        System.out.print("Enter first number: ");
+        double a = inputReader.nextDouble();
+
+        System.out.print("Enter second number: ");
+        double b = inputReader.nextDouble();
+        System.out.println("Minimum: " + findMin(a, b));
+    }
+
+    private static void performMaximum(Scanner inputReader) {
+        System.out.print("Enter first number: ");
+        double a = inputReader.nextDouble();
+
+        System.out.print("Enter second number: ");
+        double b = inputReader.nextDouble();
+        System.out.println("Maximum: " + findMax(a, b));
     }
 }
 
