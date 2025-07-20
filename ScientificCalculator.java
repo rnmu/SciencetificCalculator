@@ -1,13 +1,80 @@
 import java.util.Scanner;
-
+import java.util.InputMismatchException;
 public class ScientificCalculator {
 
     public static void main(String[] args) {
+        Scanner inputReader = new Scanner(System.in);
+        boolean running = true;
+
+        while (running) {
+            displayMenu(); // Display menu
+
+            try {
+                // User options
+                System.out.print("Choose an option (1–17): ");
+                int option = inputReader.nextInt();
+
+
+                switch (option) {
+                    case 1:
+                        performAddition(inputReader);
+                        break;
+                    case 17:
+                        System.out.println("Exiting calculator. Goodbye!");
+                        running = false;
+                        break;
+                    default:
+                        System.out.println("Invalid option. Try again.");
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter numbers only.");
+                inputReader.nextLine();
+            }
+        }
+
+        // Close scanner
+        inputReader.close();
     }
 
     // --- Menu Display Method ---
     public static void displayMenu() {
+        System.out.println("\n--- Scientific Calculator ---");
+        System.out.println("1.  Add");
+        System.out.println("2.  Subtract");
+        System.out.println("3.  Multiply");
+        System.out.println("4.  Divide");
+        System.out.println("5.  Square Root");
+        System.out.println("6.  Power (x^y)");
+        System.out.println("7.  Sine");
+        System.out.println("8.  Cosine");
+        System.out.println("9.  Tangent");
+        System.out.println("10. Natural Logarithm (ln)");
+        System.out.println("11. Log Base 10");
+        System.out.println("12. Round");
+        System.out.println("13. Ceiling");
+        System.out.println("14. Floor");
+        System.out.println("15. Minimum");
+        System.out.println("16. Maximum");
+        System.out.println("17. Exit");
     }
+
+    // --- Basic Arithmetic Methods ---
+    public static double add(double a, double b) {
+        return a + b;
+    }
+
+    // --- Helper Methods for User Interaction ---
+    private static void performAddition(Scanner inputReader) {
+        System.out.print("Enter first number: ");
+        double a = inputReader.nextDouble();
+
+        System.out.print("Enter second number: ");
+        double b = inputReader.nextDouble();
+
+        System.out.println("Result: " + add(a, b));
+    }
+
 }
 
 
