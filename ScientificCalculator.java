@@ -43,6 +43,9 @@ public class ScientificCalculator {
                     case 9:
                         performTangent(inputReader);
                         break;
+                    case 10:
+                        performNaturalLog(inputReader);
+                        break;
                     case 17:
                         System.out.println("Exiting calculator. Goodbye!");
                         running = false;
@@ -112,6 +115,9 @@ public class ScientificCalculator {
     public static double calculateTangent(double degrees) {
         double radians = Math.toRadians(degrees);
         return Math.abs(Math.cos(radians)) < 1e-10 ? Double.NaN : Math.tan(radians);
+    }
+    public static double calculateNaturalLog(double num) {
+        return (num <= 0) ? Double.NaN : Math.log(num);
     }
 
 
@@ -186,7 +192,11 @@ public class ScientificCalculator {
         double angle = inputReader.nextDouble();
         System.out.println("Result: " + calculateTangent(angle));
     }
-
+    private static void performNaturalLog(Scanner inputReader) {
+        System.out.print("Enter number: ");
+        double num = inputReader.nextDouble();
+        System.out.println("Result: " + calculateNaturalLog(num));
+    }
 }
 
 
