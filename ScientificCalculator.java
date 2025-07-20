@@ -19,6 +19,9 @@ public class ScientificCalculator {
                     case 1:
                         performAddition(inputReader);
                         break;
+                    case 2:
+                        performSubtraction(inputReader);
+                        break;
                     case 17:
                         System.out.println("Exiting calculator. Goodbye!");
                         running = false;
@@ -63,6 +66,9 @@ public class ScientificCalculator {
     public static double add(double a, double b) {
         return a + b;
     }
+    public static double subtract(double a, double b) {
+        return a - b;
+    }
 
     // --- Helper Methods for User Interaction ---
     private static void performAddition(Scanner inputReader) {
@@ -73,6 +79,15 @@ public class ScientificCalculator {
         double b = inputReader.nextDouble();
 
         System.out.println("Result: " + add(a, b));
+    }
+    private static void performSubtraction(Scanner inputReader) {
+        System.out.print("Enter first number: ");
+        double a = inputReader.nextDouble();
+
+        System.out.print("Enter second number: ");
+        double b = inputReader.nextDouble();
+
+        System.out.println("Result: " + subtract(a, b));
     }
 
 }
